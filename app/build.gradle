@@ -8,7 +8,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.ankit.trendinggit"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -49,6 +49,9 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+
+    // Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
     // Databinding compiler
     kapt 'com.android.databinding:compiler:3.2.0-alpha10'

@@ -14,9 +14,99 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/_20dp">
-        <TextView
+
+        <LinearLayout
+            android:id="@+id/item_header_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{itemData.full_name}"/>
- </RelativeLayout>
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/item_avatar"
+                android:layout_width="@dimen/avatar_size"
+                android:layout_height="@dimen/avatar_size"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_20dp"
+                android:gravity="center_vertical"
+                android:text="@{itemData.full_name}"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_20sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/item_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_header_container"
+            android:layout_marginTop="@dimen/_10dp"
+            android:layout_marginBottom="@dimen/_10dp"
+            android:text="@{itemData.description}"
+            android:textSize="@dimen/_16sp" />
+
+        <LinearLayout
+            android:id="@+id/item_fork_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_description"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/item_fork_image"
+                android:layout_width="@dimen/avatar_size"
+                android:layout_height="@dimen/avatar_size"
+                android:src="@drawable/ic_fork" />
+
+            <TextView
+                android:id="@+id/item_fork_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5dp"
+                android:text="@{itemData.forks_count+``}"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/item_star_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_description"
+            android:layout_marginStart="@dimen/_20dp"
+            android:layout_toEndOf="@id/item_fork_container"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/item_star_image"
+                android:layout_width="@dimen/avatar_size"
+                android:layout_height="@dimen/avatar_size"
+                android:src="@drawable/ic_star_black" />
+
+            <TextView
+                android:id="@+id/item_star_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5dp"
+                android:text="@{itemData.stargazers_count+``}"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/item_issues_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_description"
+            android:layout_marginStart="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_5dp"
+            android:layout_toEndOf="@id/item_star_container"
+            android:text="@{itemData.open_issues_count+` issues`}"
+            android:textColor="@android:color/black" />
+
+    </RelativeLayout>
 </layout>

@@ -8,5 +8,18 @@
         android:id="@+id/repoListFragment"
         android:name="com.ankit.trendinggit.view.ui.repolist.RepoListFragment"
         android:label="Trending List"
-        tools:layout="@layout/fragment_repo_list"/>
+        tools:layout="@layout/fragment_repo_list">
+        <action
+            android:id="@+id/action_repoListFragment_to_repoDetailFragment"
+            app:destination="@id/repoDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/repoDetailFragment"
+        android:name="com.ankit.trendinggit.view.ui.repodetail.RepoDetailFragment"
+        android:label="RepoDetailFragment">
+        <argument
+            android:name="url"
+            android:defaultValue="https://www.github.com"
+            app:argType="string" />
+    </fragment>
 </navigation>

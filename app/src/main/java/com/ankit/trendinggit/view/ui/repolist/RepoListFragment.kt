@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ankit.trendinggit.databinding.FragmentRepoListBinding
 import com.ankit.trendinggit.view.adapter.RepoListAdapter
 import kotlinx.android.synthetic.main.fragment_repo_list.*
+import org.jetbrains.anko.longToast
 
 class RepoListFragment : Fragment() {
 
@@ -33,9 +34,14 @@ class RepoListFragment : Fragment() {
         setupAdapter()
         setupObservers()
     }
+
     private fun setupObservers() {
         viewDataBinding.viewmodel?.repoListLive?.observe(viewLifecycleOwner, Observer {
             adapter.updateRepoList(it)
+        })
+
+        viewDataBinding.viewmodel?.toastMessage?.observe(viewLifecycleOwner, Observer {
+            activity?.longToast(it)
         })
     }
 

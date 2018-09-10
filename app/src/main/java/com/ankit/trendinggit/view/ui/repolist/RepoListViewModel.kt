@@ -2,7 +2,7 @@ package com.ankit.trendinggit.view.ui.repolist
 
 import androidx.lifecycle.MutableLiveData
 import com.ankit.trendinggit.model.Item
-import com.ankit.trendinggit.model.api.RepoRepository
+import com.ankit.trendinggit.model.RepoRepository
 import com.ankit.trendinggit.view.base.BaseViewModel
 
 class RepoListViewModel : BaseViewModel() {
@@ -12,7 +12,7 @@ class RepoListViewModel : BaseViewModel() {
         dataLoading.value = true
         RepoRepository.getInstance().getRepoList { isSuccess, response ->
             dataLoading.value = false
-            if(isSuccess) {
+            if (isSuccess) {
                 repoListLive.value = response?.items
                 empty.value = false
             } else {
