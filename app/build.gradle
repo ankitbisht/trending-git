@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.ankit.trendinggit"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+androidExtensions {
+    experimental = true
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+
+    // Navigation component
+    implementation "android.arch.navigation:navigation-fragment:$rootProject.nav_version" // use -ktx for Kotlin
+    implementation "android.arch.navigation:navigation-ui:$rootProject.nav_version" // use -ktx for Kotlin
+    implementation "android.arch.navigation:navigation-runtime-ktx:$rootProject.nav_version" // use -ktx for Kotlin
+    implementation "android.arch.work:work-runtime-ktx:$rootProject.workVersion" // use -ktx for Kotlin
+
+    // Anko
+    implementation "org.jetbrains.anko:anko:$rootProject.anko_version"
+    implementation "org.jetbrains.anko:anko-commons:$rootProject.anko_version"
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+
+    // Databinding compiler
+    kapt 'com.android.databinding:compiler:3.2.0-alpha10'
+}
+
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+}
