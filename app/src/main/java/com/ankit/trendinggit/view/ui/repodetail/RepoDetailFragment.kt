@@ -55,10 +55,6 @@ class RepoDetailFragment : Fragment() {
         webSettings.useWideViewPort = true
         webSettings.domStorageEnabled = true
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            webSettings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW;
-        }
-
         repo_web_view.webViewClient = object : WebViewClient() {
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
