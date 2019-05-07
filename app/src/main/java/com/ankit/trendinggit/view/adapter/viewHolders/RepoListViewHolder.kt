@@ -10,7 +10,7 @@ import com.ankit.trendinggit.view.ui.repolist.RepoListViewModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.view_repo_list_item.view.*
 import org.jetbrains.anko.bundleOf
-import org.jetbrains.anko.sdk25.coroutines.onClick
+import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class RepoListViewHolder constructor(private val dataBinding: ViewDataBinding, private val repoListViewModel: RepoListViewModel)
     : RecyclerView.ViewHolder(dataBinding.root) {

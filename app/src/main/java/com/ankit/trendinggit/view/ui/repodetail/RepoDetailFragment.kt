@@ -12,7 +12,7 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import com.ankit.trendinggit.R
 import kotlinx.android.synthetic.main.fragment_repo_detail.*
-import org.jetbrains.anko.sdk25.coroutines.onClick
+import org.jetbrains.anko.sdk27.coroutines.onClick
 
 
 class RepoDetailFragment : Fragment() {
@@ -23,7 +23,7 @@ class RepoDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val url = RepoDetailFragmentArgs.fromBundle(arguments).url
+        val url = arguments?.let { RepoDetailFragmentArgs.fromBundle(it).url }
 
         setupWebView()
         setClickListeners()
